@@ -1,7 +1,32 @@
 [![Build Status](https://travis-ci.org/rafaelhenrique/flask_tutorial.svg?branch=master)](https://travis-ci.org/rafaelhenrique/flask_tutorial)
 
-# flask_tutorial
-Flask tutorial to Python Study Group
+# Flask Tutorial
+
+This is an educational project to teach Flask to people who already know Python and the basics of how the HTTP protocol works.
+
+## Python intro
+
+See this playlist: https://www.youtube.com/playlist?list=PL6f2gQ2RXLosWiXDHM7vOr1MPdfxPAm_t
+
+## HTTP intro
+
+See this video: https://www.youtube.com/watch?v=WWkJLTMbL9A
+
+## How setup this project?
+
+Create your virtualenv (using python3):
+
+```
+$ python3 -m venv .venv
+```
+
+Install requirements:
+
+```
+$ pip install -r requirements.txt
+```
+
+To run, follow explanatory videos below.
 
 ## 1.0 - Flask and the most basic application of the world!
 
