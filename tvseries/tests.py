@@ -6,7 +6,7 @@ class TestCore:
 
     @pytest.fixture
     def app(self):
-        from app import app
+        from core import app
         return app
 
     def test_get_home(self):
