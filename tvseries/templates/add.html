@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<form action="" method="post" id="form">       
+    <div class="panel panel-default form">
+        <div class="panel-heading">Adicionar série de TV</div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Nome:</label>
+                        <input type="text" name="serie-name" id="id_serie-name">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Salvar</button>
+</form>
+{% endblock %}

@@ -4,4 +4,19 @@
 <h1>Hello {% if name %}{{name}}{% else %}world{% endif %}!</h1>
 <p>This is a simple page :D</p>
 </div>
+
+<div class="panel panel-default">
+    <div class="panel-heading"><a href="{{ url_for('add') }}">Inserir séries</a></div>
+</div>
+
+{% if series %}
+<div class="panel panel-default">
+    <div class="panel-heading">Minhas series:</div>
+    <ul class="list-group">
+    {% for serie in series %}
+        <li class="list-group-item">{{ serie }}</li>
+    {% endfor %}
+    </ul>
+</div>
+{% endif %}
 {% endblock %}
