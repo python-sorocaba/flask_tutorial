@@ -1,13 +1,13 @@
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
 
 @app.route('/')
 def home():
-    return "<h1>Hello world!</h1>"
+    return render_template('home.html')
 
 
 @app.route('/<name>')
 def name(name):
-    return "<h1>Hello {}!</h1>".format(name)
+    return render_template('home2.html', name=name)
