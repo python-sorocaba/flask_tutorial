@@ -10,4 +10,4 @@ def home():
 
 @app.route('/<name>')
 def name(name):
-    return render_template('home2.html', name=name)
+    return render_template('home.html', name=name)
