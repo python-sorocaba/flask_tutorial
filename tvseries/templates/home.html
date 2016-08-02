@@ -1,5 +1,7 @@
-{%- if name -%}
-<h1>Hello {{ name }}!</h1>
-{%- else -%}
-<h1>Hello world!</h1>
-{%- endif -%}
+{% extends 'base.html' %}
+{% block content %}
+<div class="jumbotron">
+<h1>Hello {% if name %}{{name}}{% else %}world{% endif %}!</h1>
+<p>This is a simple page :D</p>
+</div>
+{% endblock %}
