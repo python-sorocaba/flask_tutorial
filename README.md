@@ -33,3 +33,9 @@ To run, follow explanatory videos below.
 - See release code: https://github.com/rafaelhenrique/flask_tutorial/tree/1.0
 - See explanation about release: https://github.com/rafaelhenrique/flask_tutorial/releases/tag/1.0
 - See video: https://www.youtube.com/watch?v=i5ewUO-zX4g
+
+## 2.0 - Flask starting our TV series app!
+
+- See release code: https://github.com/rafaelhenrique/flask_tutorial/tree/2.0
+- See explanation about release: https://github.com/rafaelhenrique/flask_tutorial/releases/tag/2.0
+- See video: https://www.youtube.com/watch?v=CxVhTwGtb3Y
