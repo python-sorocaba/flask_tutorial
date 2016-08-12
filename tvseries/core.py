@@ -1,13 +1,17 @@
-from flask import Flask, render_template, request, redirect
+import os
+from random import choice
+
+from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__)
 series = []
 
 
 @app.route('/')
-@app.route('/<name>')
-def home(name=None):
-    return render_template('home.html', name=name, series=series)
+def home():
+    names = os.listdir(os.path.join(app.static_folder, 'img'))
+    img_url = url_for('static', filename=os.path.join('img', choice(names)))
+    return render_template('home.html', series=series, image=img_url)
 
 
 @app.route('/add', methods=['GET', 'POST'])
