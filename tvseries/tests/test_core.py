@@ -11,7 +11,7 @@ class TestCore:
         from tvseries.core import app
         return app
 
-    def test_get_home(self):
+    def test_get_home(self, db):
         response = self.client.get("/")
         assert '<div class="banner">' in response.data.decode('utf-8')
         assert response.status_code == 200
@@ -22,11 +22,13 @@ class TestCore:
                 response.data.decode('utf-8'))
         assert response.status_code == 200
 
-    def test_post_add(self):
-        response = self.client.post("/add", data={"serie-name": "Teste"})
-        from tvseries.core import series
-        assert series == ['Teste']
-        assert response.status_code == 302
+    def test_post_add(self, db):
+        response = self.client.post("/add", data={
+            "serie-name": "Game of Thrones",
+            "serie-author": "George R.R. Martin",
+            "serie-description": "Teste",
+        })
+        assert response.status_code == 302 and TVSerie.query.count() == 1
 
     @pytest.fixture
     def db(self, app, request):
