@@ -30,3 +30,9 @@ class TestCore:
         from tvseries.core import series
         assert series == ['Teste']
         assert response.status_code == 302
+
+    def test_navbar(self):
+        response = self.client.get("/")
+        assert ('<nav class="navbar navbar-default"' in
+                response.data.decode('utf-8'))
+        assert response.status_code == 200
