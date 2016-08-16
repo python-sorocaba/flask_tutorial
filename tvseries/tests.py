@@ -11,12 +11,7 @@ class TestCore:
 
     def test_get_home(self):
         response = self.client.get("/")
-        assert '<h1>Hello world!</h1>' in response.data.decode('utf-8')
-        assert response.status_code == 200
-
-    def test_get_name(self):
-        response = self.client.get("/Rafael")
-        assert '<h1>Hello Rafael!</h1>' in response.data.decode('utf-8')
+        assert '<div class="banner">' in response.data.decode('utf-8')
         assert response.status_code == 200
 
     def test_get_add(self):

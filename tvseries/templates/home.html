@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
 
-{% import 'banner.html' as banner %}
-{{ banner.render_banner(image) }}
+<div class="banner">
+    <img src="{{ image }}" width="100%" border="0">
+</div>
 
 {% if series %}
 <div class="panel panel-default">
