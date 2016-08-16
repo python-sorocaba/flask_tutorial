@@ -39,3 +39,9 @@ To run, follow explanatory videos below.
 - See release code: https://github.com/rafaelhenrique/flask_tutorial/tree/2.0
 - See explanation about release: https://github.com/rafaelhenrique/flask_tutorial/releases/tag/2.0
 - See video: https://www.youtube.com/watch?v=CxVhTwGtb3Y
+
+## 3.0 - "Beautiful" banners, Jinja2 and starting SQLAlchemy world!
+
+- See release code: https://github.com/rafaelhenrique/flask_tutorial/tree/3.0
+- See explanation about release: https://github.com/rafaelhenrique/flask_tutorial/releases/tag/3.0
+- See video: https://www.youtube.com/watch?v=KGNFeMb39A0
