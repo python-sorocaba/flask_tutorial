@@ -45,3 +45,10 @@ To run, follow explanatory videos below.
 - See release code: https://github.com/rafaelhenrique/flask_tutorial/tree/3.0
 - See explanation about release: https://github.com/rafaelhenrique/flask_tutorial/releases/tag/3.0
 - See video: https://www.youtube.com/watch?v=KGNFeMb39A0
+
+## 4.0 - ORM, creation and query data! (and some Windows problems :-o)
+
+- See release code: https://github.com/rafaelhenrique/flask_tutorial/tree/4.0
+- See explanation about release: https://github.com/rafaelhenrique/flask_tutorial/releases/tag/4.0
+- See video: https://www.youtube.com/watch?v=8h9CC2zexsI
+
