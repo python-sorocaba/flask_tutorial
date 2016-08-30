@@ -11,24 +11,36 @@ class TestCore:
         from tvseries.core import app
         return app
 
-    def test_get_home(self):
+    def test_get_home(self, db):
         response = self.client.get("/")
         assert '<div class="banner">' in response.data.decode('utf-8')
         assert response.status_code == 200
 
-    def test_get_add(self):
+    def test_get_add_status_code(self):
         response = self.client.get("/add")
-        assert ('<input type="text" name="serie-name" id="id_serie-name">' in
-                response.data.decode('utf-8'))
         assert response.status_code == 200
 
-    def test_post_add(self):
-        response = self.client.post("/add", data={"serie-name": "Teste"})
-        from tvseries.core import series
-        assert series == ['Teste']
-        assert response.status_code == 302
+    def test_get_add_content(self):
+        response = self.client.get("/add")
+        expected = (
+            'name="serie-name" id="id_serie-name"',
+            'name="serie-description" id="id_serie-description"',
+            'name="serie-author" id="id_serie-author"',
+            'name="serie-episodies_number" id="id_serie-episodies_number"',
+        )
+        for field in expected:
+            assert field in response.data.decode('utf-8')
 
-    def test_navbar(self):
+    def test_post_add(self, db):
+        response = self.client.post("/add", data={
+            "serie-name": "Game of Thrones",
+            "serie-author": "George R.R. Martin",
+            "serie-description": "Teste",
+        })
+        result = TVSerie.query.filter(TVSerie.name == 'Game of Thrones')
+        assert response.status_code == 302 and result.count() == 1
+
+    def test_navbar(self, db):
         response = self.client.get("/")
         assert ('<nav class="navbar navbar-default"' in
                 response.data.decode('utf-8'))
