@@ -1,0 +1,3 @@
+SECRET_KEY=your_secret_here_change_this_phrase
+SERVER_NAME=your_server_name_here_change_this_phrase
+DATABASE_URI=postgresql://username:password@address:port/database_name

@@ -1,6 +1,7 @@
 import pytest
 
 from tvseries.core.models import TVSerie
+from tvseries.config import TestConfig
 
 
 @pytest.mark.usefixtures('client_class')
@@ -9,6 +10,7 @@ class TestCore:
     @pytest.fixture
     def app(self):
         from tvseries import app
+        app.config.from_object(TestConfig)
         return app
 
     def test_get_home(self, db):
