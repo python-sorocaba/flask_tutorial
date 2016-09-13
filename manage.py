@@ -1,5 +1,5 @@
 from flask_script import Manager
-from tvseries.core import app
+from tvseries import app
 
 manager = Manager(app)
 

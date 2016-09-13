@@ -1,6 +1,6 @@
 import pytest
 
-from tvseries.core import TVSerie
+from tvseries.core.models import TVSerie
 
 
 @pytest.mark.usefixtures('client_class')

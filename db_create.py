@@ -1,4 +1,4 @@
-from tvseries.core import app, db
+from tvseries import app, db
 
 db.app = app
 db.create_all()
