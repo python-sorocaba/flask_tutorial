@@ -26,7 +26,19 @@ Install requirements:
 $ pip install -r requirements.txt
 ```
 
-To run, follow explanatory videos below.
+Configure your local `.env` file:
+
+```
+$ cp contrib/env-sample .env
+```
+
+Open `.env` with your favorite editor and configure your paramethers. Run your server with command below:
+
+```
+$ python manage.py runserver
+```
+
+More information? Follow explanatory videos below.
 
 ## 1.0 - Flask and the most basic application of the world!
 
@@ -52,3 +64,8 @@ To run, follow explanatory videos below.
 - See explanation about release: https://github.com/rafaelhenrique/flask_tutorial/releases/tag/4.0
 - See video: https://www.youtube.com/watch?v=8h9CC2zexsI
 
+## 5.0 - Configuration, structure and Hen and Egg problem!
+
+- See release code: https://github.com/rafaelhenrique/flask_tutorial/tree/5.0
+- See explanation about release: https://github.com/rafaelhenrique/flask_tutorial/releases/tag/5.0
+- See video: https://www.youtube.com/watch?v=VsFtrqTFyEE

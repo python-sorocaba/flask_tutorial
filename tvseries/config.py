@@ -15,8 +15,6 @@ class DevelopmentConfig(BaseConfig):
 
 
 class TestConfig(BaseConfig):
-    SECRET_KEY = 'teste123'
-    SERVER_NAME = '127.0.0.1:5000'
     SQLALCHEMY_DATABASE_URI = 'sqlite:///tvseries-test.sqlite3'
     TESTING = True
 

@@ -9,5 +9,5 @@ install:
   - pip install -r requirements.txt
 
 script:
+  - cp contrib/env-test .env
   - py.test .
-
