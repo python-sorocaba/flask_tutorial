@@ -8,7 +8,7 @@ class TestCore:
 
     @pytest.fixture
     def app(self):
-        from tvseries.core import app
+        from tvseries import app
         return app
 
     def test_get_home(self, db):
@@ -48,7 +48,7 @@ class TestCore:
 
     @pytest.fixture
     def db(self, app, request):
-        from tvseries.core import db as db_test
+        from tvseries import db as db_test
 
         def teardown():
             db_test.drop_all()

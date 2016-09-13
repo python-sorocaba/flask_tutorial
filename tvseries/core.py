@@ -1,12 +1,9 @@
 import os
 
 from random import choice
-from flask import Flask, render_template, request, redirect, url_for
-from flask_sqlalchemy import SQLAlchemy
+from flask import render_template, request, redirect, url_for
 
-app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///tvseries.sqlite3'
-db = SQLAlchemy(app)
+from tvseries import app, db
 
 
 @app.route('/')
