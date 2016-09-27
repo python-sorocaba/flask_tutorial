@@ -69,3 +69,10 @@ More information? Follow explanatory videos below.
 - See release code: https://github.com/rafaelhenrique/flask_tutorial/tree/5.0
 - See explanation about release: https://github.com/rafaelhenrique/flask_tutorial/releases/tag/5.0
 - See video: https://www.youtube.com/watch?v=VsFtrqTFyEE
+
+## 6.0 - Structure and Hen and Egg problem (solved now)!
+
+- See release code: https://github.com/rafaelhenrique/flask_tutorial/tree/6.0
+- See explanation about release: https://github.com/rafaelhenrique/flask_tutorial/releases/tag/6.0
+- See video: https://www.youtube.com/watch?v=ZMGimM8pE78
+
