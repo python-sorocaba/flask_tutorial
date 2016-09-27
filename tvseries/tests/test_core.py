@@ -50,7 +50,7 @@ class TestCore:
 
     @pytest.fixture
     def db(self, app, request):
-        from tvseries import db as db_test
+        from tvseries.ext import db as db_test
 
         def teardown():
             db_test.drop_all()

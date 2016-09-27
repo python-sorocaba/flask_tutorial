@@ -1,4 +1,4 @@
-from tvseries import db
+from tvseries.ext import db
 
 
 class TVSerie(db.Model):

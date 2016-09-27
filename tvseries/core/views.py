@@ -3,23 +3,22 @@ from random import choice
 
 from flask import render_template, url_for, redirect, request
 
-from tvseries import app, db
+from tvseries.ext import db
+from tvseries.core import core_blueprint
 from tvseries.core.models import TVSerie
-# ou ....
-# from .models import TVSerie
 
 
-@app.route('/')
+@core_blueprint.route('')
 def home(name=None):
-    image_directory = os.path.join(app.static_folder, 'img')
+    image_directory = os.path.join(core_blueprint.static_folder, 'img')
     image_filenames = os.listdir(image_directory)
     image = os.path.join('img', choice(image_filenames))
-    img_url = url_for('static', filename=image)
+    img_url = url_for('core.static', filename=image)
     series = TVSerie.query.all()
     return render_template('home.html', series=series, image=img_url)
 
 
-@app.route('/add', methods=['GET', 'POST'])
+@core_blueprint.route('add', methods=['GET', 'POST'])
 def add():
     if request.method == 'POST':
         name = request.form.to_dict().get('serie-name')
