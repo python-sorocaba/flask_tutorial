@@ -6,6 +6,7 @@ class BaseConfig(object):
     SECRET_KEY = config('SECRET_KEY')
     SERVER_NAME = config('SERVER_NAME')
     SQLALCHEMY_DATABASE_URI = config('DATABASE_URI')
+    SQLALCHEMY_TRACK_MODIFICATIONS = True
     DEBUG = False
     TESTING = False
 

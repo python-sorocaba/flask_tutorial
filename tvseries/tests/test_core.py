@@ -9,8 +9,8 @@ class TestCore:
 
     @pytest.fixture
     def app(self):
-        from tvseries import app
-        app.config.from_object(TestConfig)
+        from tvseries import create_app
+        app = create_app(TestConfig)
         return app
 
     def test_get_home(self, db):
