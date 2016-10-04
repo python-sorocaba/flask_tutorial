@@ -76,3 +76,9 @@ More information? Follow explanatory videos below.
 - See explanation about release: https://github.com/rafaelhenrique/flask_tutorial/releases/tag/6.0
 - See video: https://www.youtube.com/watch?v=ZMGimM8pE78
 
+## 7.0 - Deploy part 1!
+
+- See release code: https://github.com/rafaelhenrique/flask_tutorial/tree/7.0
+- See explanation about release: https://github.com/rafaelhenrique/flask_tutorial/releases/tag/7.0
+- See video: https://www.youtube.com/watch?v=-XDWUBIccrw
+
