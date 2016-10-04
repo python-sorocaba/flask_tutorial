@@ -3,3 +3,4 @@ Flask-Script==2.0.5
 Flask-SQLAlchemy==2.1
 pytest-flask==0.10.0
 python-decouple==3.0
+uWSGI==2.0.14
