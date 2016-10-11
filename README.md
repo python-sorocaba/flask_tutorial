@@ -82,3 +82,9 @@ More information? Follow explanatory videos below.
 - See explanation about release: https://github.com/rafaelhenrique/flask_tutorial/releases/tag/7.0
 - See video: https://www.youtube.com/watch?v=-XDWUBIccrw
 
+## 8.0 - Deploy part 2!
+
+- See release code: https://github.com/rafaelhenrique/flask_tutorial/tree/8.0
+- See explanation about release: https://github.com/rafaelhenrique/flask_tutorial/releases/tag/8.0
+- See video: https://www.youtube.com/watch?v=mjrJOQAoDWk
+
