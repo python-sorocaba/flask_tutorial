@@ -91,3 +91,6 @@ ENV/
 
 # Database
 *.sqlite3
+
+# Ignore collected static files
+static
