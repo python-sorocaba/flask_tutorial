@@ -94,3 +94,7 @@ ENV/
 
 # Ignore collected static files
 static
+
+# Recomended ignore some files of ansible
+#contrib/ansible_playbooks/secret
+

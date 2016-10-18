@@ -1,0 +1,38 @@
+---
+- hosts: virtualbox-vms
+  vars_files:
+    - secret/vars.yml
+  become: true
+
+  tasks:
+  - name: Authorize my key on remote host.
+    authorized_key: user={{ management_user }} key={{ lookup('file', lookup('env','HOME') + '/.ssh/id_rsa.pub') }}
+    become: yes
+
+  - name: Create user.
+    user: name={{ project_name }} state=present
+
+  - name: Update system.
+    apt: update_cache=yes
+
+  # - name: Upgrade system.
+  #   apt: upgrade=dist
+
+  - name: Install required system packages.
+    apt: pkg={{ item }} state=installed update-cache=yes allow_unauthenticated=yes
+    with_items: "{{ system_packages }}"
+
+  - name: Create ssh directory to root user.
+    file: path=/root/.ssh state=directory owner=root group=root mode=0700
+
+  - name: Upload SSH key private root.
+    copy: src={{ private_key_github }} dest=/root/.ssh/id_rsa mode=0400
+
+  - name: Upload SSH key public root.
+    copy: src={{ public_key_github }} dest=/root/.ssh/id_rsa.pub mode=0644
+
+  - name: Pull sources from the repository.
+    git: repo={{ project_repo }} dest={{ project_root }} version={{ branch }} accept_hostkey=True force=yes
+
+  - name: Change permissions.
+    file: dest={{ project_home }} owner={{ project_name }} group={{ project_name }} recurse=yes
