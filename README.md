@@ -94,4 +94,10 @@ More information? Follow explanatory videos below.
 - See explanation about release: https://github.com/rafaelhenrique/flask_tutorial/releases/tag/9.0
 - See video: https://www.youtube.com/watch?v=8hZQGDSA1Yo
 
+## 10.0 - Automating deployment with Ansible (part 2)!
+
+- See release code: https://github.com/rafaelhenrique/flask_tutorial/tree/10.0
+- See explanation about release: https://github.com/rafaelhenrique/flask_tutorial/releases/tag/10.0
+- See video: https://www.youtube.com/watch?v=guKkJmTGVgc
+
 
