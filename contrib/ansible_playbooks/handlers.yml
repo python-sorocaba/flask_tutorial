@@ -1,0 +1,24 @@
+---
+- name: restart nginx
+  service: name=nginx state=restarted
+  become_user: root
+
+- name: stop nginx
+  service: name=nginx state=stopped
+  become_user: root
+
+- name: start nginx
+  service: name=nginx state=started
+  become_user: root
+
+- name: reload nginx
+  service: name=nginx state=reloaded
+  become_user: root
+
+- name: restart supervisor
+  service: name=supervisor state=restarted
+  become_user: root
+
+# - name: restart gunicorn
+#   action: service name={{ project_name }}_gunicorn state=restarted
+#   sudo_user: root

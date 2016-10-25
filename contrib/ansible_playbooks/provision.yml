@@ -34,5 +34,47 @@
   - name: Pull sources from the repository.
     git: repo={{ project_repo }} dest={{ project_root }} version={{ branch }} accept_hostkey=True force=yes
 
+  - name: Create virtualenv
+    shell: /usr/bin/python3.5 -m venv {{ virtualenv_directory }}
+
+  - name: Install requirements of Python project.
+    pip: requirements={{ project_root }}/requirements.txt virtualenv={{ virtualenv_directory }}
+
+  - name: Upload robots.txt configuration file.
+    copy: src=secret/robots.txt dest={{ project_root }}
+
   - name: Change permissions.
     file: dest={{ project_home }} owner={{ project_name }} group={{ project_name }} recurse=yes
+
+  - name: Install supervisor uwsgi configuration file.
+    copy: src=secret/uwsgi.conf dest=/etc/supervisor/conf.d/{{ project_name }}_uwsgi.conf
+    notify: restart supervisor
+
+  ## Dependent tasks
+
+  - name: Find default configurations of nginx sites-enabled.
+    find: paths="/etc/nginx/sites-enabled"
+    register: result
+
+  - name: Remove files from sites-enabled of nginx.
+    file: path={{ item.path }} state=absent
+    with_items: 
+      - "{{ result.files }}"
+
+  ##
+
+  - name: Upload nginx configuration file to sites-available.
+    copy: src=secret/nginx.conf dest=/etc/nginx/sites-available/{{ project_name }}.conf
+
+  - name: Upload nginx configuration file to sites-enabled.
+    copy: src=secret/nginx.conf dest=/etc/nginx/sites-enabled/{{ project_name }}.conf
+    notify: restart nginx
+
+  - name: Enable supervisor on start.
+    shell: update-rc.d supervisor defaults && update-rc.d supervisor enable
+
+  - name: Create database.
+    shell: SECRET_KEY={{ secret_key }} SERVER_NAME={{ server_name }} DATABASE_URI={{ database_uri }} python db_create.py
+
+  handlers:
+    - include: handlers.yml
