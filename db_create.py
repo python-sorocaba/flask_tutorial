@@ -1,4 +1,7 @@
-from tvseries import app, db
+from tvseries import create_app
+from tvseries.ext import db
+
+app = create_app()
 
 db.app = app
 db.create_all()
