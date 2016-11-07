@@ -15,8 +15,8 @@
   - name: Update system.
     apt: update_cache=yes
 
-  # - name: Upgrade system.
-  #   apt: upgrade=dist
+  - name: Upgrade system.
+    apt: upgrade=dist
 
   - name: Install required system packages.
     apt: pkg={{ item }} state=installed update-cache=yes allow_unauthenticated=yes
@@ -36,6 +36,9 @@
 
   - name: Create virtualenv
     shell: /usr/bin/python3.5 -m venv {{ virtualenv_directory }}
+
+  - name: Upgrade PIP.
+    shell: "{{ virtualenv_directory }}/bin/pip install --upgrade pip"
 
   - name: Install requirements of Python project.
     pip: requirements={{ project_root }}/requirements.txt virtualenv={{ virtualenv_directory }}
@@ -70,11 +73,20 @@
     copy: src=secret/nginx.conf dest=/etc/nginx/sites-enabled/{{ project_name }}.conf
     notify: restart nginx
 
+  - name: Create supervisor start scripts.
+    shell: update-rc.d supervisor defaults 
+
   - name: Enable supervisor on start.
-    shell: update-rc.d supervisor defaults && update-rc.d supervisor enable
+    shell: update-rc.d supervisor enable
 
   - name: Create database.
-    shell: SECRET_KEY={{ secret_key }} SERVER_NAME={{ server_name }} DATABASE_URI={{ database_uri }} python db_create.py
+    shell: "SECRET_KEY={{ secret_key }} SERVER_NAME={{ server_name }} DATABASE_URI={{ database_uri }}  {{ virtualenv_directory }}/bin/python3.5 {{ project_root }}/db_create.py"
+
+  - name: Run collect static.
+    shell: "SECRET_KEY={{ secret_key }} SERVER_NAME={{ server_name }} DATABASE_URI={{ database_uri }}  {{ virtualenv_directory }}/bin/python3.5 {{ project_root }}/manage.py collect"
+
+  - name: Change permissions.
+    file: dest={{ project_home }} owner={{ project_name }} group={{ project_name }} recurse=yes
 
   handlers:
     - include: handlers.yml

@@ -1,4 +1,4 @@
-provision:
+provision: install-python-remote
 	@ansible-playbook provision.yml -v --ask-become-pass
 
 deploy:	
