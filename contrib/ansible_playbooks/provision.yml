@@ -1,4 +1,7 @@
 ---
+# This playbook works fine on Ubuntu 16.04.1 x86_64
+# not tested in another versions
+
 - hosts: virtualbox-vms
   vars_files:
     - secret/vars.yml
