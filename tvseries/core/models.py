@@ -9,6 +9,7 @@ class TVSerie(db.Model):
     description = db.Column(db.Text, nullable=True)
     episodies_number = db.Column(db.Integer, nullable=False, default=1)
     author = db.Column(db.String(50), nullable=False)
+    year = db.Column(db.Date)
 
     def __repr__(self):
         if self.description:

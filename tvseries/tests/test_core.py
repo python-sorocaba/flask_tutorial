@@ -1,5 +1,6 @@
 import pytest
 
+from datetime import date
 from tvseries.core.models import TVSerie
 from tvseries.config import TestConfig
 
@@ -79,7 +80,8 @@ class TestCore:
         )
         serie = TVSerie(name="Game of Thrones",
                         description=description,
-                        author="George R.R. Martin")
+                        author="George R.R. Martin",
+                        year=date(2011, 1, 1))
         db.session.add(serie)
         db.session.commit()
         assert TVSerie.query.count() == 1
@@ -102,7 +104,8 @@ class TestCore:
         )
         serie = TVSerie(name="Game of Thrones",
                         description=description,
-                        author="George R.R. Martin")
+                        author="George R.R. Martin",
+                        year=date(2011, 1, 1))
         assert repr(serie) == (
             "TVSerie(id=None, name='Game of Thrones', "
             "description='Há muito t...', episodies_number=None)"
