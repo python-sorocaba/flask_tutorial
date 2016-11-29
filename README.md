@@ -106,3 +106,9 @@ More information? Follow explanatory videos below.
 - See explanation about release: https://github.com/rafaelhenrique/flask_tutorial/releases/tag/11.0
 - See video: https://www.youtube.com/watch?v=k1IagndK9F8
 
+## 12.0 - Migrate databases (part 2)!
+
+- See release code: https://github.com/rafaelhenrique/flask_tutorial/tree/12.0
+- See explanation about release: https://github.com/rafaelhenrique/flask_tutorial/releases/tag/12.0
+- See video: https://www.youtube.com/watch?v=t4dGoI4S4SE
+
