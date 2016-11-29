@@ -2,7 +2,6 @@ from tvseries.ext import db
 
 
 class TVSerie(db.Model):
-    __table_args__ = {'sqlite_autoincrement': True}
     id = db.Column(db.Integer(),
                    nullable=False, unique=True,
                    autoincrement=True, primary_key=True)
