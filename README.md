@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/rafaelhenrique/flask_tutorial.svg?branch=master)](https://travis-ci.org/rafaelhenrique/flask_tutorial)
+[![Build Status](https://travis-ci.org/python-sorocaba/flask_tutorial.svg?branch=master)](https://travis-ci.org/python-sorocaba/flask_tutorial)
 
 # Flask Tutorial
 
