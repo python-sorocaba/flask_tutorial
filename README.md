@@ -40,6 +40,34 @@ $ python manage.py runserver
 
 More information? Follow explanatory videos below.
 
+## How to execute queries manually?
+
+Inside on your virtualenv:
+```
+$ python manage.py shell
+```
+
+Import db and model:
+```
+from tvseries.ext import db
+from tvseries.core.models import TVSerie
+```
+
+Bind your session with your application:
+```
+db.app = app
+```
+
+Quering example:
+```
+db.session.query(TVSerie).all()
+```
+
+If operation is "create", "update" or "delete" dont forget to run commit operation to confirm operation:
+```
+db.session.commit()
+```
+
 ## 1.0 - Flask and the most basic application of the world!
 
 - See release code: https://github.com/rafaelhenrique/flask_tutorial/tree/1.0
