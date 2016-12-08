@@ -140,3 +140,11 @@ db.session.commit()
 - See explanation about release: https://github.com/rafaelhenrique/flask_tutorial/releases/tag/12.0
 - See video: https://www.youtube.com/watch?v=t4dGoI4S4SE
 
+## 13.0 - Working with forms!
+
+- See release code: https://github.com/rafaelhenrique/flask_tutorial/tree/13.0
+- See explanation about release: https://github.com/rafaelhenrique/flask_tutorial/releases/tag/13.0
+- See videos: 
+	- https://www.youtube.com/watch?v=ffJ3ia8SZds
+	- https://www.youtube.com/watch?v=5-fUl-_ODhg
+
