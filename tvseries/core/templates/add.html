@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
-<form action="" method="post" id="form">       
+<form action="" method="post" id="form">
+    {{ form.csrf_token }}
     <div class="panel panel-default form">
         <div class="panel-heading">Adicionar série de TV</div>
         <div class="panel-body">
@@ -8,20 +9,60 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Nome:</label>
-                        <input type="text" name="serie-name" id="id_serie-name">
+                        {{ form.name }}
+                        {% if form.name.errors %}
+                        <ul>
+                            {% for error in form.name.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
                     </div>
                     <div class="form-group">
                         <label>Descrição:</label>
-                        <input type="text" name="serie-description" id="id_serie-description">
+                        {{ form.description }}
+                        {% if form.description.errors %}
+                        <ul>
+                            {% for error in form.description.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
                     </div>
                     <div class="form-group">
                         <label>Autor:</label>
-                        <input type="text" name="serie-author" id="id_serie-author">
+                        {{ form.author }}
+                        {% if form.author.errors %}
+                        <ul>
+                            {% for error in form.author.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
                     </div>
                     <div class="form-group">
                         <label>Número de episódios:</label>
-                        <input type="text" name="serie-episodies_number" id="id_serie-episodies_number">
-                    </div>                    
+                        {{ form.episodies_number }}
+                        {% if form.episodies_number.errors %}
+                        <ul>
+                            {% for error in form.episodies_number.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        <label>Ano:</label>
+                        {{ form.year }}
+                        <small>* formato: YYYY-MM-DD</small>
+                        {% if form.year.errors %}
+                        <ul>
+                            {% for error in form.year.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
         </div>

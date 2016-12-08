@@ -26,22 +26,36 @@ class TestCore:
     def test_get_add_content(self):
         response = self.client.get("/add")
         expected = (
-            'name="serie-name" id="id_serie-name"',
-            'name="serie-description" id="id_serie-description"',
-            'name="serie-author" id="id_serie-author"',
-            'name="serie-episodies_number" id="id_serie-episodies_number"',
+            '<input id="name" name="name" type="text" value="">',
+            '<input id="description" name="description" type="text" value="">',
+            '<input id="author" name="author" type="text" value="">',
+            '<input id="episodies_number" name="episodies_number" type="text" value="">',
+            '<input id="year" name="year" type="text" value="">',
         )
         for field in expected:
             assert field in response.data.decode('utf-8')
 
     def test_post_add(self, db):
         response = self.client.post("/add", data={
-            "serie-name": "Game of Thrones",
-            "serie-author": "George R.R. Martin",
-            "serie-description": "Teste",
+            "name": "Game of Thrones",
+            "description": "Teste",
+            "author": "George R.R. Martin",
+            "episodies_number": "60",
+            "year": date(2011, 1, 1)
         })
         result = TVSerie.query.filter(TVSerie.name == 'Game of Thrones')
         assert response.status_code == 302 and result.count() == 1
+
+    def test_post_add_with_invalid_data(self, db):
+        response = self.client.post("/add", data={
+            "name": "Game of Thrones",
+            "description": "Teste",
+            "author": "George R.R. Martin",
+            "episodies_number": "60",
+            "year": "aaaaaaa"
+        })
+        result = TVSerie.query.filter(TVSerie.name == 'Game of Thrones')
+        assert response.status_code == 200 and result.count() == 0
 
     def test_navbar(self, db):
         response = self.client.get("/")
